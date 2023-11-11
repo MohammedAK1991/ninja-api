@@ -41,7 +41,7 @@ export class NinjasService {
     return newNinja;
   }
 
-  removeNinja(id: string) {
+  removeNinja(id: number) {
     const removedNinja = this.ninjas.filter((ninja) => ninja.id == +id);
     this.ninjas = this.ninjas.filter((ninja) => ninja.id !== +id);
     console.log(this.ninjas);
