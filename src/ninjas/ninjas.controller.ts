@@ -5,7 +5,6 @@ import {
   Get,
   NotFoundException,
   Param,
-  ParseIntPipe,
   Post,
   Put,
   Query,
@@ -27,7 +26,7 @@ export class NinjasController {
   }
 
   @Get(':id')
-  getOneNinja(@Param('id', ParseIntPipe) id: number) {
+  getOneNinja(@Param('id') id: string) {
     try {
       return this.ninjasService.getOneNinja(id);
     } catch (error) {
@@ -42,15 +41,12 @@ export class NinjasController {
   }
 
   @Put(':id')
-  updateNinja(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() updateNinjaDto: UpdateNinjaDto,
-  ) {
+  updateNinja(@Param('id') id: string, @Body() updateNinjaDto: UpdateNinjaDto) {
     return this.ninjasService.updateNinja(id, updateNinjaDto);
   }
 
   @Delete(':id')
-  removeNinja(@Param('id', ParseIntPipe) id: number) {
+  removeNinja(@Param('id') id: string) {
     return this.ninjasService.removeNinja(id);
   }
 }
