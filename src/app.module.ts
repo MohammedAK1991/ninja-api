@@ -10,8 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     NinjasModule,
     UsersModule,
     MongooseModule.forRoot(
-      process.env.MONGODB_URI ||
-        'mongodb+srv://mohammedak1991:Aydinzaki_123@cluster0.k5gzuww.mongodb.net/?retryWrites=true&w=majority',
+      process.env.MONGODB_URI,
     ),
   ],
   controllers: [AppController],
